@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="test_deploymentFlow" doc:id="83764cf2-3fbd-4a4f-a073-ca6726b3c8b1" >
+		<scheduler doc:name="Scheduler" doc:id="0dc5bcb5-ba4a-4df3-9cea-aa32bc7cd840" >
+			<scheduling-strategy >
+				<fixed-frequency frequency="2" timeUnit="MINUTES"/>
+			</scheduling-strategy>
+		</scheduler>
+		<set-variable value="12" doc:name="Set Variable" doc:id="82cc6a92-1261-40f3-99f2-e247aee95dc5" variableName="num1"/>
+		<set-variable value="10" doc:name="Set Variable" doc:id="af3e4b84-87f5-4a53-86d4-9d238413bd8f" variableName="num2"/>
+		<ee:transform doc:name="Transform Message" doc:id="86877231-6b77-4beb-9b7b-4dec2dc2837e" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"addtion":(vars.num1 as Number) +(vars.num2 as Number),
+	"substraction": (vars.num1 as Number) - (vars.num2 as Number),
+	"multiplication":(vars.num1 as Number) *(vars.num2 as Number),
+	"division":(vars.num1 as Number)/(vars.num2 as Number) 
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="5860a279-3842-4fcd-a663-6f3febdd03f2" message="checking the deployment ::::::: #[payload]"/>
+	</flow>
+</mule>
