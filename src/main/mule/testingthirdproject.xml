@@ -7,24 +7,42 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<flow name="test_deploymentFlow" doc:id="83764cf2-3fbd-4a4f-a073-ca6726b3c8b1" >
 		<scheduler doc:name="Scheduler" doc:id="0dc5bcb5-ba4a-4df3-9cea-aa32bc7cd840" >
 			<scheduling-strategy >
+<<<<<<< HEAD
 				<fixed-frequency frequency="2" timeUnit="MINUTES"/>
+=======
+				<fixed-frequency frequency="10" timeUnit="MINUTES"/>
+>>>>>>> dd4dfad (added the third variable in a flow for arthmatic operations)
 			</scheduling-strategy>
 		</scheduler>
 		<set-variable value="12" doc:name="Set Variable" doc:id="82cc6a92-1261-40f3-99f2-e247aee95dc5" variableName="num1"/>
 		<set-variable value="10" doc:name="Set Variable" doc:id="af3e4b84-87f5-4a53-86d4-9d238413bd8f" variableName="num2"/>
+<<<<<<< HEAD
+=======
+		<set-variable value="4" doc:name="Set Variable" doc:id="17e833d9-0cd1-4281-aba9-1d3f0fde50eb" variableName="num3"/>
+>>>>>>> dd4dfad (added the third variable in a flow for arthmatic operations)
 		<ee:transform doc:name="Transform Message" doc:id="86877231-6b77-4beb-9b7b-4dec2dc2837e" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json
 ---
 {
+<<<<<<< HEAD
 	"addtion":(vars.num1 as Number) +(vars.num2 as Number),
 	"substraction": (vars.num1 as Number) - (vars.num2 as Number),
 	"multiplication":(vars.num1 as Number) *(vars.num2 as Number),
+=======
+	"addtion":(vars.num1 as Number) +(vars.num2 as Number) + (vars.num3 as Number),
+	"substraction": (vars.num1 as Number) - (vars.num2 as Number) -  (vars.num3 as Number),
+	"multiplication":(vars.num1 as Number) *(vars.num2 as Number) *  (vars.num3 as Number),
+>>>>>>> dd4dfad (added the third variable in a flow for arthmatic operations)
 	"division":(vars.num1 as Number)/(vars.num2 as Number) 
 }]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
+<<<<<<< HEAD
 		<logger level="INFO" doc:name="Logger" doc:id="5860a279-3842-4fcd-a663-6f3febdd03f2" message="checking the deployment ::::::: #[payload]"/>
+=======
+		<logger level="INFO" doc:name="Logger" doc:id="5860a279-3842-4fcd-a663-6f3febdd03f2" message="took all the 3 vars of num1,numn2,num3 ::::::: #[payload] "/>
+>>>>>>> dd4dfad (added the third variable in a flow for arthmatic operations)
 	</flow>
 </mule>
