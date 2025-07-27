@@ -22,9 +22,9 @@
          <businessGroupId>c9b8cd42-f992-42fe-9947-a7abff144a3d</businessGroupId>
           <replicas>1</replicas>
           <vCores>0.1</vCores>
-		<tags/>
+<!-- 		<tags/>
 		<categories>[]</categories>
-		<fields>[]</fields>
+		<fields>[]</fields> -->
 	</properties>
 
 	<build>
